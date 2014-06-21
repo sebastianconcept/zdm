@@ -7,3 +7,9 @@ Router.map( function () {
 });
 
 Router.configure({layoutTemplate: 'master'});
+
+UI.registerHelper("activeIfSelected", function (nav) {
+	var router=Router.current();
+	var routeName = router && router.route.name;
+	return routeName === nav ? 'active' : '';
+});
