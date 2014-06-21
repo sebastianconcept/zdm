@@ -1,0 +1,21 @@
+<template name="questions">
+	<h3>Questions</h3>
+
+	{{#if labelFeedback}}
+      <div id="labelFeedback" class="bg-danger text-danger">{{labelFeedback}}</div>
+    {{/if}}
+	<input id="questionLabel" type="text" class="form-control" placeholder="Enter the new question label here" />
+	{{#if contentFeedback}}
+      <div id="contentFeedback" class="bg-danger text-danger">{{contentFeedback}}</div>
+    {{/if}}
+	<input id="questionContent" type="text" class="form-control" placeholder="Enter the new question content here" />
+	<button id="addQuestion" type="button" class= "btn">Add New Question</button>
+
+
+	<ul class="col-md-12">
+		{{#each questions}}
+			<li class="col-md-12">{{> question}}</li>
+		{{/each}}
+	</ul>
+
+</template>
