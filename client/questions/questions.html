@@ -1,16 +1,17 @@
 <template name="questions">
 	<h3>Questions</h3>
 
-	{{#if labelFeedback}}
-      <div id="labelFeedback" class="bg-danger text-danger">{{labelFeedback}}</div>
-    {{/if}}
-	<input id="questionLabel" type="text" class="form-control" placeholder="Enter the new question label here" />
-	{{#if contentFeedback}}
-      <div id="contentFeedback" class="bg-danger text-danger">{{contentFeedback}}</div>
-    {{/if}}
-	<input id="questionContent" type="text" class="form-control" placeholder="Enter the new question content here" />
-	<button id="addQuestion" type="button" class= "btn">Add New Question</button>
-
+	<div id="addQuestionWrapper">
+		{{#if labelFeedback}}
+			<div  class="bg-danger text-danger labelFeedback">{{labelFeedback}}</div>
+		{{/if}}
+		<input type="text" class="form-control questionLabel" placeholder="Enter the label for the new question here" />
+		{{#if contentFeedback}}
+			<div class="bg-danger text-danger contentFeedback">{{contentFeedback}}</div>
+		{{/if}}
+		<input type="text" class="form-control questionContent" placeholder="Enter the content for the new question here" />
+		<button id="addQuestion" type="button" class= "btn btn-primary ">Add New Question</button>
+	</div>
 
 	<ul class="col-md-12">
 		{{#each questions}}

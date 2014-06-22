@@ -1,24 +1,15 @@
 
 
-  Template.questions.questions = function(){
-    return Questions.find({},{sort:{createdOn: -1}});
+  Template.sections.sections = function(){
+    return Sections.find({},{sort:{createdOn: -1}});
   }; 
 
-  Template.questions.labelFeedback = function(){
-    return Session.get("questionLabelFeedback");
+  Template.sections.nameFeedback = function(){
+    return Session.get("sectionNameFeedback");
   }; 
 
-  Template.questions.contentFeedback = function(){
-    return Session.get("questionContentFeedback");
-  }; 
-
-
-  Template.questions.addQuestion = function(){
-      var theLabel=$('.questionLabel').first().val();
-      var theContent=$('.questionContent').first().val();
-      console.log("theLabel?");
-      //debugger
-      console.log(theLabel);
+  Template.sections.addSection = function(){
+      var theName=$('.sectionName').val();
       if(
         QuestionLabelValidator.isValid(theLabel)&&
         QuestionContentValidator.isValid(theContent)){
@@ -35,21 +26,19 @@
 
 
   Template.questions.events({
-    'click #addQuestion': function(){
+    'click .addQuestion': function(){
       Template.questions.addQuestion();
     },
   });
 
 QuestionLabelValidator = {
     clear: function(){
-      return Session.set("questionLabelFeedback",undefined);
+      return Session.set("labelFeedback",undefined);
     },
     setFeedback: function(aString){
-      console.log("setting questionLabelFeedback");
-      return Session.set("questionLabelFeedback",aString);
+      return Session.set("labelFeedback",aString);
     },
     isValid: function(aString){
-      console.log("label isValid?");
       this.clear();
       if(aString.length==0){
         this.setFeedback("The label can't be empty");
@@ -60,18 +49,18 @@ QuestionLabelValidator = {
 
 QuestionContentValidator = {
     clear: function(){
-      return Session.set("questionContentFeedback",undefined);
+      return Session.set("contentFeedback",undefined);
     },
     setFeedback: function(aString){
-      return Session.set("questionContentFeedback",aString);
+      return Session.set("contentFeedback",aString);
     },
     isValid: function(aString){
       this.clear();
       if(aString.length==0){
-        this.setFeedback("Sorry, the question can't be empty");
+        this.setFeedback("The question can't be empty");
         return false;
       } else if (this.findWithContent(aString)){
-        this.setFeedback("Sorry, that question already exists");
+        this.setFeedback("That question already exists");
         return false;
       } else { return true; }
 
