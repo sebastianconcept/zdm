@@ -3,7 +3,7 @@
     Session.set('sectionEditors',[]);
   };
 
-  // answers true if the section with aQuestionId
+  // answers true if the section with aSectionId
   // is in edit mode
   Template.section.isEditing = function(){
     return Session.get('sectionEditors').indexOf(this._id)!= -1

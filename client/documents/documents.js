@@ -5,15 +5,15 @@
   }; 
 
   Template.documents.nameFeedback = function(){
-    return Session.get("nameFeedback");
+    return Session.get("documentNameFeedback");
   }; 
 
 
   Template.documents.addDocument = function(){
       var theName=$('.documentName').val();
       if(
-        DocumentContentValidator.isValid(theName)){
-        Document.insert({
+        DocumentNameValidator.isValid(theName)){
+        Documents.insert({
           createdOn: Date.now(),
           autor: Meteor.user()._id,
           name: theName,
@@ -22,32 +22,31 @@
       };
   }; 
 
-
   Template.documents.events({
     'click #addDocument': function(){
       Template.documents.addDocument();
     },
   });
 
-DocumentContentValidator = {
+DocumentNameValidator = {
     clear: function(){
-      return Session.set("nameFeedback",undefined);
+      return Session.set("documentNameFeedback",undefined);
     },
     setFeedback: function(aString){
-      return Session.set("nameFeedback",aString);
+      return Session.set("documentNameFeedback",aString);
     },
     isValid: function(aString){
       this.clear();
       if(aString.length==0){
-        this.setFeedback("The name can't be empty");
+        this.setFeedback("Sorry, the document name can't be empty");
         return false;
       } else if (this.findWithName(aString)){
-        this.setFeedback("A document with that name already exists");
+        this.setFeedback("Sorry, there is already a document with that name");
         return false;
       } else { return true; }
     },
     findWithName: function(aString){
-      return Document.findOne({name: aString});
+      return Documents.findOne({name: aString});
     }
   };
 
