@@ -11,62 +11,36 @@
   Template.sections.addSection = function(){
       var theName=$('.sectionName').val();
       if(
-        QuestionLabelValidator.isValid(theLabel)&&
-        QuestionContentValidator.isValid(theContent)){
-        Questions.insert({
+        SectionNameValidator.isValid(theName)){
+        Sections.insert({
           createdOn: Date.now(),
           autor: Meteor.user()._id,
-          label: theLabel,
-          content: theContent
+          name: theName
         });
-        $('.questionLabel').val("");
-        $('.questionContent').val("");
+        $('.sectionName').val("");
       };
   }; 
 
-
-  Template.questions.events({
-    'click .addQuestion': function(){
-      Template.questions.addQuestion();
+  Template.sections.events({
+    'click .addSection': function(){
+      Template.sections.addSection();
     },
   });
 
-QuestionLabelValidator = {
+  SectionNameValidator = {
     clear: function(){
-      return Session.set("labelFeedback",undefined);
+      return Session.set("sectionNameFeedback",undefined);
     },
     setFeedback: function(aString){
-      return Session.set("labelFeedback",aString);
+      return Session.set("sectionNameFeedback",aString);
     },
     isValid: function(aString){
       this.clear();
       if(aString.length==0){
-        this.setFeedback("The label can't be empty");
+        this.setFeedback("Sorry, the section name can't be empty");
         return false;
       } else { return true; }
     },
   };
 
-QuestionContentValidator = {
-    clear: function(){
-      return Session.set("contentFeedback",undefined);
-    },
-    setFeedback: function(aString){
-      return Session.set("contentFeedback",aString);
-    },
-    isValid: function(aString){
-      this.clear();
-      if(aString.length==0){
-        this.setFeedback("The question can't be empty");
-        return false;
-      } else if (this.findWithContent(aString)){
-        this.setFeedback("That question already exists");
-        return false;
-      } else { return true; }
-
-    },
-    findWithContent: function(aString){
-      return Questions.findOne({content: aString});
-    }
-  };
 

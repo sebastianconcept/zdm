@@ -16,9 +16,6 @@
   Template.questions.addQuestion = function(){
       var theLabel=$('.questionLabel').first().val();
       var theContent=$('.questionContent').first().val();
-      console.log("theLabel?");
-      //debugger
-      console.log(theLabel);
       if(
         QuestionLabelValidator.isValid(theLabel)&&
         QuestionContentValidator.isValid(theContent)){
@@ -45,14 +42,12 @@ QuestionLabelValidator = {
       return Session.set("questionLabelFeedback",undefined);
     },
     setFeedback: function(aString){
-      console.log("setting questionLabelFeedback");
       return Session.set("questionLabelFeedback",aString);
     },
     isValid: function(aString){
-      console.log("label isValid?");
       this.clear();
       if(aString.length==0){
-        this.setFeedback("The label can't be empty");
+        this.setFeedback("Sorry, the question label can't be empty");
         return false;
       } else { return true; }
     },
@@ -68,10 +63,10 @@ QuestionContentValidator = {
     isValid: function(aString){
       this.clear();
       if(aString.length==0){
-        this.setFeedback("Sorry, the question can't be empty");
+        this.setFeedback("Sorry, the question content can't be empty");
         return false;
       } else if (this.findWithContent(aString)){
-        this.setFeedback("Sorry, that question already exists");
+        this.setFeedback("Sorry, a question with that content already exists");
         return false;
       } else { return true; }
 
@@ -80,4 +75,3 @@ QuestionContentValidator = {
       return Questions.findOne({content: aString});
     }
   };
-

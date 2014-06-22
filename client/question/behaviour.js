@@ -1,11 +1,6 @@
  Template.question.created = function() {
     // which questions are in edit mode? default: none
     Session.set('questionEditors',[]);
-
-    // using ReactiveDic for editor states as described:
-    // https://atmospherejs.com/package/reactive-dict-bind
-    //Template.question.editors = new ReactiveDict;
-    //dictBind(Template.question);
   };
 
   // answers true if the question with aQuestionId
