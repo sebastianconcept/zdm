@@ -1,5 +1,9 @@
 <template name="question">
-	<label class="col-sm-2 control-label">{{label}}</label>
-	<span class="form-control-static">{{content}}</span>
-	<button id="removeQuestion" type="button" class= "btn">X</button>
+	<li class="col-md-12">
+		{{#if isEditing}}
+			{{> questionEditor}}
+		{{else}}
+			{{> questionRow}}
+		{{/if}}
+	</li>
 </template>

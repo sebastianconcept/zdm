@@ -1,4 +1,5 @@
 
+
   Template.questions.questions = function(){
     return Questions.find({},{sort:{createdOn: -1}});
   }; 
@@ -26,24 +27,14 @@
         });
         $('#questionLabel').val("");
         $('#questionContent').val("");
-      }
+      };
   }; 
 
-  Template.questions.removeQuestion = function(){
-      var toRemove=Session.get('selectedQuestion');
-      Questions.remove(toRemove);
-  }; 
 
   Template.questions.events({
     'click #addQuestion': function(){
       Template.questions.addQuestion();
     },
-    'click li': function(){
-      Session.set('selectedQuestion',this._id);
-    },
-    'click #removeQuestion': function(){
-      Template.questions.removeQuestion();
-    }
   });
 
 QuestionLabelValidator = {
