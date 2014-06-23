@@ -19,8 +19,9 @@
       };
   };
 
-  Template.question.saveQuestion = function(aQuestion){
-    //console.log(aQuestion);
+  Template.question.saveQuestion = function(aQuestion, aTemplate){
+    aQuestion.label = aTemplate.find('.questionLabel').value;
+    aQuestion.content = aTemplate.find('.questionContent').value;
     Questions.update(aQuestion._id,aQuestion);
     var editing = Session.get('questionEditors');
     editing.splice(editing.indexOf(aQuestion._id),1);
@@ -31,15 +32,20 @@
     Questions.remove(aQuestion._id);
   }; 
 
+  Template.question.content = function(){
 
-Template.question.events({
-  'click .editQuestion': function(){
-    Template.question.edit(this);
-  },
-  'click .saveQuestion': function(){
-    Template.question.saveQuestion(this);
-  },
-  'click .removeQuestion': function(){
-    Template.question.removeQuestion(this);
-  }
-});
+    return Session.get();
+  }; 
+
+
+  Template.question.events({
+    'click .editQuestion': function(){
+      Template.question.edit(this);
+    },
+    'click .saveQuestion': function(anEvent,aTemplate){
+      Template.question.saveQuestion(this, aTemplate);
+    },
+    'click .removeQuestion': function(){
+      Template.question.removeQuestion(this);
+    }
+  });
