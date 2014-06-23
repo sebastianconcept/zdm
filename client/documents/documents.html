@@ -1,0 +1,17 @@
+<template name="documents">
+	<h3>Documents</h3>
+
+	{{#if nameFeedback}}
+      <div class="bg-danger text-danger nameFeedback">{{nameFeedback}}</div>
+    {{/if}}
+	<input type="text" class="form-control documentName" placeholder="Enter the name for the new document here" />
+	<button id="addDocument" type="button" class= "btn btn-primary">Add New Document</button>
+
+
+	<ul class="col-md-12">
+		{{#each documents}}
+			{{> document}}
+		{{/each}}
+	</ul>
+
+</template>

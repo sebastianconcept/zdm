@@ -1,0 +1,17 @@
+<template name="sections">
+	<h3>Sections</h3>
+
+	{{#if nameFeedback}}
+      <div class="bg-danger text-danger nameFeedback">{{nameFeedback}}</div>
+    {{/if}}
+
+	<input type="text" class="form-control newSectionName" placeholder="Enter the name for the new section here" />
+	<button type="button" class= "btn btn-primary addNewSection">Add New Section</button>
+
+
+	<ul class="col-md-12">
+		{{#each sections}}
+			{{> section}}
+		{{/each}}
+	</ul>	
+</template>

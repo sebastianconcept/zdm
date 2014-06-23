@@ -1,0 +1,23 @@
+<template name="sectionsInSection">
+	<ul>
+	{{#each sections}}
+		<li>
+			<span class="form-control-static">{{name}}</span>
+			<button type="button" class= "btn btn-warning removeSection">Remove</button>	
+		</li>
+	{{/each}}
+	</ul>
+
+	<div class="form-group">
+		<input 
+			id="sectionToAdd" 
+			class="form-control typeahead" 
+			name="sectionTypeaheadResult" 
+			type="text"
+		    placeholder="Enter section name"
+			autocomplete="off" spellcheck="off"
+			data-source="sectionNames"
+			/>
+		<button type="button" class= "btn btn-primary addSection">Add section to this section</button>
+	</div>
+</template>
