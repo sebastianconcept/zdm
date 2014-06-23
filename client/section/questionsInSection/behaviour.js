@@ -21,10 +21,11 @@
 
   Template.questionsInSection.addQuestion = function(aSection,aTemplate){
     aSection.questions = aSection.questions || [];
-    var theQuestionName = aTemplate.find('.typeahead').value;
+    var theQuestionContent = aTemplate.find('.typeahead').value;
 
-    aSection.questions.push(theQuestionName);
-    Sections.update(aSection._id,aSection);;
+    aSection.questions.push(theQuestionContent);
+    Sections.update(aSection._id,aSection);
+    aTemplate.find('.typeahead').value="";
   }; 
 
   Template.questionsInSection.removeQuestion = function(aQuestion,aTemplate){

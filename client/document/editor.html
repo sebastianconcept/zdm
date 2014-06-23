@@ -2,6 +2,8 @@
 	<label class="col-sm-2 control-label">Document name</label>
 	<input type="text" class="form-control documentName" placeholder="Enter the name for this document" value="{{name}}"/>
 
+	{{> sectionsInDocument}}
+
 	<button type="button" class= "btn btn-danger removeDocument">Remove</button>
 	<span class="form-control-static">or</span>
 	<button type="button" class= "btn btn-primary saveDocument">Done</button>

@@ -16,6 +16,7 @@
         var editing = Session.get('documentEditors');
         editing.push(aDocument._id);
         Session.set('documentEditors',editing);
+        setTimeout(function(){Meteor.typeahead.inject()},100);
       };
   };
 
