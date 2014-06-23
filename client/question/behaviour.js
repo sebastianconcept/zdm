@@ -1,8 +1,6 @@
  Template.question.created = function() {
     // which questions are in edit mode? default: none
     Session.set('questionEditors',[]);
-    var bindings = new ReactiveDict;
-    dictBind(Template.question);
   };
 
   // answers true if the question with aQuestionId
@@ -21,9 +19,9 @@
       };
   };
 
-  Template.question.saveQuestion = function(aQuestion){
-    console.log(aQuestion);
-    console.log(this);
+  Template.question.saveQuestion = function(aQuestion, aTemplate){
+    aQuestion.label = aTemplate.find('.questionLabel').value;
+    aQuestion.content = aTemplate.find('.questionContent').value;
     Questions.update(aQuestion._id,aQuestion);
     var editing = Session.get('questionEditors');
     editing.splice(editing.indexOf(aQuestion._id),1);
@@ -34,21 +32,20 @@
     Questions.remove(aQuestion._id);
   }; 
 
-Template.question.content = function(){
+  Template.question.content = function(){
 
     return Session.get();
   }; 
 
 
-Template.question.events({
-  'click .editQuestion': function(){
-    Template.question.edit(this);
-  },
-  'click .saveQuestion': function(){
-    console.log(this);
-    Template.question.saveQuestion(this);
-  },
-  'click .removeQuestion': function(){
-    Template.question.removeQuestion(this);
-  }
-});
+  Template.question.events({
+    'click .editQuestion': function(){
+      Template.question.edit(this);
+    },
+    'click .saveQuestion': function(anEvent,aTemplate){
+      Template.question.saveQuestion(this, aTemplate);
+    },
+    'click .removeQuestion': function(){
+      Template.question.removeQuestion(this);
+    }
+  });
