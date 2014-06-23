@@ -1,7 +1,10 @@
 <template name="questionEditor">
-		<div>EDITING</div>
-		<label class="col-sm-2 control-label">{{label}}</label>
-		<span class="form-control-static">{{content}}</span>
+		<label class="col-sm-2 control-label">Question label</label>
+		<input type="text" class="form-control questionLabel" placeholder="Enter the label for this question" {{bindDict "label" bindings}}/>
+
+		<label class="col-sm-2 control-label">Question content</label>
+		<input type="text" class="form-control questionContent" placeholder="Enter the content for this question" {{bindDict "content" bindings}}/>
+
 		<button type="button" class= "btn btn-danger removeQuestion">Remove</button>
 		<span class="form-control-static">or</span>
 		<button type="button" class= "btn btn-primary saveQuestion">Done</button>
