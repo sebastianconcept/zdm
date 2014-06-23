@@ -1,0 +1,21 @@
+<template name="questionsInSection">
+	<ul>
+	{{#each questionsInSection}}
+		<label class="col-sm-2 control-label">{{label}}</label>
+		<span class="form-control-static">{{content}}</span>
+		<button type="button" class= "btn btn-danger removeQuestion">Remove</button>	
+	{{/each}}
+	</ul>
+
+	<div class="form-group">
+		<input 
+			id="questionToAdd" 
+			class="form-control typeahead" 
+			name="questionTypeaheadResult" 
+			type="text"
+		    placeholder="Enter question content"
+			autocomplete="off" spellcheck="off"
+			data-source="questions"/>
+		<button type="button" class= "btn btn-primary addQuestion">Add question to this section</button>
+	</div>
+</template>

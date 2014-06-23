@@ -2,6 +2,8 @@
 	<label class="col-sm-2 control-label">Section name</label>
 	<input type="text" class="form-control sectionName" placeholder="Enter the name for this section" value="{{name}}"/>
 
+	{{> questionsInSection}}
+
 	<button type="button" class= "btn btn-danger removeSection">Remove</button>
 	<span class="form-control-static">or</span>
 	<button type="button" class= "btn btn-primary saveSection">Done</button>
