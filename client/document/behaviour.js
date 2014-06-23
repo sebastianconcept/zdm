@@ -19,7 +19,8 @@
       };
   };
 
-  Template.document.saveDocument = function(aDocument){
+  Template.document.saveDocument = function(aDocument, aTemplate){
+    aDocument.name = aTemplate.find('.documentName').value;
     Documents.update(aDocument._id,aDocument);
     var editing = Session.get('documentEditors');
     editing.splice(editing.indexOf(aDocument._id),1);
@@ -34,8 +35,8 @@ Template.document.events({
   'click .editDocument': function(){
     Template.document.edit(this);
   },
-  'click .saveDocument': function(){
-    Template.document.saveDocument(this);
+  'click .saveDocument': function(anEvent, aTemplate){
+    Template.document.saveDocument(this, aTemplate);
   },
   'click .removeDocument': function(){
     Template.document.removeDocument(this);
