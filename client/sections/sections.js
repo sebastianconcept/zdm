@@ -8,8 +8,8 @@
     return Session.get("sectionNameFeedback");
   }; 
 
-  Template.sections.addSection = function(){
-      var theName=$('.sectionName').val();
+  Template.sections.addNewSection = function(){
+      var theName = $('.newSectionName').val();
       if(
         SectionNameValidator.isValid(theName)){
         Sections.insert({
@@ -17,13 +17,13 @@
           autor: Meteor.user()._id,
           name: theName
         });
-        $('.sectionName').val("");
+        $('.newSectionName').val("");
       };
   }; 
 
   Template.sections.events({
-    'click .addSection': function(){
-      Template.sections.addSection();
+    'click .addNewSection': function(){
+      Template.sections.addNewSection();
     },
   });
 
