@@ -5,7 +5,8 @@
       "iron-router": {},
       "less-bootstrap-3": {},
       "font-awesome-4-less": {},
-      "reactive-dict-bind": {}
+      "reactive-dict-bind": {},
+      "typeahead": {}
     },
     "packages": {
       "iron-router": {
@@ -27,6 +28,11 @@
         "git": "https://github.com/poetic/meteor-reactive-dict-bind.git",
         "tag": "v0.0.1",
         "commit": "7ab26c2aacbe0311293c7d7744ae47000aaa231f"
+      },
+      "typeahead": {
+        "git": "https://github.com/sergeyt/meteor-typeahead.git",
+        "tag": "v0.0.10",
+        "commit": "fe0bb03aea8493037de134d815f9663feb21a944"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
