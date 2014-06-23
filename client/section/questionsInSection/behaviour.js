@@ -5,12 +5,9 @@
   };
 
   Template.questionsInSection.findQuestionsIn = function(aSection){
-    if(!aSection.questions){aSection.questions = []};
-    console.log(aSection);
+    aSection.questions = aSection.questions || [];
     return aSection.questions.map(function(each){
-      console.log(Questions.findOne({content:each}));
-
-      //return Questions.findOne({content:each}).fetch();
+      return Questions.findOne({content:each});
     });
   };
 
@@ -19,25 +16,25 @@
   }; 
 
   Template.questionsInSection.questions = function(){
-    console.log(Template.questionsInSection.findQuestionsIn(this));
     return Template.questionsInSection.findQuestionsIn(this);
   }; 
 
   Template.questionsInSection.addQuestion = function(aSection,aTemplate){
-    if(!aSection.questions){aSection.questions = []};
+    aSection.questions = aSection.questions || [];
     var theQuestionName = aTemplate.find('.typeahead').value;
 
     aSection.questions.push(theQuestionName);
     Sections.update(aSection._id,aSection);;
   }; 
 
-  Template.questionsInSection.removeSection = function(aSection,aTemplate){
-    console.log('on remove question from section');
+  Template.questionsInSection.removeQuestion = function(aQuestion,aTemplate){
+    aTemplate.data.questions.splice(aTemplate.data.questions.indexOf(aQuestion.content),1);
+    Sections.update(aTemplate.data._id,aTemplate.data);
   }; 
 
   Template.questionsInSection.events({
     'click .removeQuestion': function(anEvent, aTemplate){
-      Template.questionsInSection.removeSection(this,aTemplate);
+      Template.questionsInSection.removeQuestion(this,aTemplate);
     },
     'click .addQuestion': function(anEvent, aTemplate){
       Template.questionsInSection.addQuestion(this,aTemplate);
