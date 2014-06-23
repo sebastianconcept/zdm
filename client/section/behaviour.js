@@ -19,7 +19,8 @@
       };
   };
 
-  Template.section.saveSection = function(aSection){
+  Template.section.saveSection = function(aSection, aTemplate){
+    aSection.name = aTemplate.find('.sectionName').value;
     Sections.update(aSection._id,aSection);
     var editing = Session.get('sectionEditors');
     editing.splice(editing.indexOf(aSection._id),1);
@@ -35,8 +36,8 @@ Template.section.events({
   'click .editSection': function(){
     Template.section.edit(this);
   },
-  'click .saveSection': function(){
-    Template.section.saveSection(this);
+  'click .saveSection': function(anEvent, aTemplate){
+    Template.section.saveSection(this, aTemplate);
   },
   'click .removeSection': function(){
     Template.section.removeSection(this);
