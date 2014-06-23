@@ -28,7 +28,7 @@
     Session.set('questionEditors',editing);
   }; 
 
-  Template.question.removeQuestion = function(aQuestion){
+  Template.question.destroyQuestion = function(aQuestion){
     Questions.remove(aQuestion._id);
   }; 
 
@@ -45,7 +45,7 @@
     'click .saveQuestion': function(anEvent,aTemplate){
       Template.question.saveQuestion(this, aTemplate);
     },
-    'click .removeQuestion': function(){
-      Template.question.removeQuestion(this);
+    'click .destroyQuestion': function(){
+      Template.question.destroyQuestion(this);
     }
   });
