@@ -4,9 +4,14 @@
     //console.log(this.find('.questionToAdd'));
   };
 
-  Template.questionsInSection.findQuestions = function(){
-    //console.log(this);
-    return Questions.find().fetch();
+  Template.questionsInSection.findQuestionsIn = function(aSection){
+    if(!aSection.questions){aSection.questions = []};
+    console.log(aSection);
+    return aSection.questions.map(function(each){
+      console.log(Questions.findOne({content:each}));
+
+      //return Questions.findOne({content:each}).fetch();
+    });
   };
 
   Template.questionsInSection.questionsContent = function(){
@@ -14,7 +19,8 @@
   }; 
 
   Template.questionsInSection.questions = function(){
-    return Template.questionsInSection.findQuestions();
+    console.log(Template.questionsInSection.findQuestionsIn(this));
+    return Template.questionsInSection.findQuestionsIn(this);
   }; 
 
   Template.questionsInSection.addQuestion = function(aSection,aTemplate){
