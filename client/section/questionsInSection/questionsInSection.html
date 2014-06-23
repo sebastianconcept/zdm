@@ -1,9 +1,11 @@
 <template name="questionsInSection">
 	<ul>
 	{{#each questions}}
-		<label class="col-sm-2 control-label">{{name}}</label>
-		<span class="form-control-static">{{content}}</span>
-		<button type="button" class= "btn btn-danger removeQuestion">Remove</button>	
+		<li>
+			<label class="col-sm-2 control-label">{{label}}</label>
+			<span class="form-control-static">{{content}}</span>
+			<button type="button" class= "btn btn-danger removeQuestion">Remove</button>	
+		</li>
 	{{/each}}
 	</ul>
 
@@ -15,7 +17,8 @@
 			type="text"
 		    placeholder="Enter question content"
 			autocomplete="off" spellcheck="off"
-			data-source="questions"/>
+			data-source="questionsContent"
+			/>
 		<button type="button" class= "btn btn-primary addQuestion">Add question to this section</button>
 	</div>
 </template>
