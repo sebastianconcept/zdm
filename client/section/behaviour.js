@@ -1,4 +1,6 @@
- Template.section.created = function() {
+  Meteor.typeahead.inject();
+
+  Template.section.created = function() {
     // which sections are in edit mode? default: none
     Session.set('sectionEditors',[]);
   };
@@ -16,6 +18,8 @@
         var editing = Session.get('sectionEditors');
         editing.push(aSection._id);
         Session.set('sectionEditors',editing);
+        setTimeout(function(){Meteor.typeahead.inject()},100);
+
       };
   };
 
@@ -31,15 +35,14 @@
     Sections.remove(aSection._id);
   }; 
 
-
-Template.section.events({
-  'click .editSection': function(){
-    Template.section.edit(this);
-  },
-  'click .saveSection': function(anEvent, aTemplate){
-    Template.section.saveSection(this, aTemplate);
-  },
-  'click .removeSection': function(){
-    Template.section.removeSection(this);
-  }
-});
+  Template.section.events({
+    'click .editSection': function(){
+      Template.section.edit(this);
+    },
+    'click .saveSection': function(anEvent, aTemplate){
+      Template.section.saveSection(this, aTemplate);
+    },
+    'click .removeSection': function(){
+      Template.section.removeSection(this);
+    }
+  });
