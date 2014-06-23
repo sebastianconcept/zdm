@@ -28,7 +28,7 @@
     Session.set('documentEditors',editing);
   }; 
 
-  Template.document.removeDocument = function(aDocument){
+  Template.document.destroyDocument = function(aDocument){
     Documents.remove(aDocument._id);
   }; 
 
@@ -39,7 +39,7 @@ Template.document.events({
   'click .saveDocument': function(anEvent, aTemplate){
     Template.document.saveDocument(this, aTemplate);
   },
-  'click .removeDocument': function(){
-    Template.document.removeDocument(this);
+  'click .destroyDocument': function(){
+    Template.document.destroyDocument(this);
   }
 });

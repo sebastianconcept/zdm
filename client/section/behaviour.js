@@ -31,7 +31,7 @@
     Session.set('sectionEditors',editing);
   }; 
 
-  Template.section.removeSection = function(aSection){
+  Template.section.destroySection = function(aSection){
     Sections.remove(aSection._id);
   }; 
 
@@ -42,7 +42,7 @@
     'click .saveSection': function(anEvent, aTemplate){
       Template.section.saveSection(this, aTemplate);
     },
-    'click .removeSection': function(){
-      Template.section.removeSection(this);
+    'click .destroySection': function(){
+      Template.section.destroySection(this);
     }
   });
