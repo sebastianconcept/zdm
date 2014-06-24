@@ -1,5 +1,13 @@
 <template name="documentRow">
-		<label class="col-sm-2 control-label">{{name}}</label>
-		<span class="form-control-static">{{sections}}</span>
-		<button type="button" class= "btn btn-default editDocument">Edit</button>
+	<div class="document panel panel-primary">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<h3>{{name}}</h3>
+			</div>
+		</div>
+		<div class="panel-body">
+			<span class="form-control-static">{{sections}}</span>
+			<button type="button" class= "btn btn-default editDocument">Edit</button>
+		</div>
+	</div>
 </template>
