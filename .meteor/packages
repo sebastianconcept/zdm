@@ -9,9 +9,9 @@ insecure
 iron-router
 accounts-password
 less
-less-bootstrap-3
-font-awesome-4-less
 accounts-ui
 reactive-dict
 reactive-dict-bind
 typeahead
+bootstrap-3
+fontawesome4
