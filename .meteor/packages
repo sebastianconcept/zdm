@@ -6,12 +6,10 @@
 standard-app-packages
 autopublish
 insecure
-iron-router
 accounts-password
-less
 accounts-ui
 reactive-dict
-reactive-dict-bind
-typeahead
 bootstrap-3
 fontawesome4
+iron-router
+typeahead

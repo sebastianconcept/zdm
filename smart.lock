@@ -2,20 +2,26 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
+      "bootstrap-3": {},
+      "fontawesome4": {},
       "iron-router": {},
-      "reactive-dict-bind": {},
       "typeahead": {}
     },
     "packages": {
+      "bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
+        "tag": "v3.1.1-1",
+        "commit": "63dd38968828bb8963636df93e9a1c45e2dfe67e"
+      },
+      "fontawesome4": {
+        "git": "https://github.com/chrismbeckett/meteor-fontawesome4.git",
+        "tag": "v1.1.0",
+        "commit": "7d2cb9119b7981b8f854b7051d302d4842311249"
+      },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "tag": "v0.7.1",
         "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
-      },
-      "reactive-dict-bind": {
-        "git": "https://github.com/poetic/meteor-reactive-dict-bind.git",
-        "tag": "v0.0.1",
-        "commit": "7ab26c2aacbe0311293c7d7744ae47000aaa231f"
       },
       "typeahead": {
         "git": "https://github.com/sergeyt/meteor-typeahead.git",

@@ -1,7 +1,8 @@
 {
   "packages": {
+    "bootstrap-3": {},
+    "fontawesome4": {},
     "iron-router": {},
-    "reactive-dict-bind": {},
     "typeahead": {}
   }
 }
