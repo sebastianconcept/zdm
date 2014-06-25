@@ -2,9 +2,13 @@
 	<ul>
 	{{#each questions}}
 		<li>
-			<label class="col-sm-2 control-label">{{label}}</label>
-			<span class="form-control-static">{{content}}</span>
-			<button type="button" class= "btn btn-warning removeQuestion">Remove</button>	
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<label class="col-sm-2 control-label">{{label}}</label>
+					<span class="form-control-static">{{content}}</span>
+					<button type="button" class= "btn btn-warning removeQuestion">Remove</button>	
+				</div>
+			</div>
 		</li>
 	{{/each}}
 	</ul>

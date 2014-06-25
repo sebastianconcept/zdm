@@ -2,8 +2,12 @@
 	<ul>
 	{{#each sections}}
 		<li>
-			<label class="col-sm-2 control-label">{{name}}</label>
-			<button type="button" class= "btn btn-warning removeSection">Remove</button>	
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<label class="col-sm-2 control-label">{{name}}</label>
+					<button type="button" class= "btn btn-warning removeSection">Remove</button>
+				</div>
+			</div>
 		</li>
 	{{/each}}
 	</ul>

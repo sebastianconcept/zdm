@@ -1,5 +1,9 @@
 /*custom CSS*/
 
-.document {
+ul, li {
+ list-style: none; 
+}
+
+.document, .question, .section {
   margin: 20px;
 }

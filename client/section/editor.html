@@ -1,12 +1,22 @@
 <template name="sectionEditor">
-	<label class="col-sm-2 control-label">Section name</label>
-	<input type="text" class="form-control sectionName" placeholder="Enter the name for this section" value="{{name}}"/>
+	<div class="section panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<h4>Section editor</h4>
+			</div>
+		</div>
 
-	{{> questionsInSection}}
+		<div class="panel-body">
+			<label class="col-sm-2 control-label">Section name</label>
+			<input type="text" class="form-control sectionName" placeholder="Enter the name for this section" value="{{name}}"/>
 
-	{{> sectionsInSection}}	
+			{{> questionsInSection}}
 
-	<button type="button" class= "btn btn-danger destroySection">Destroy</button>
-	<span class="form-control-static">or</span>
-	<button type="button" class= "btn btn-primary saveSection">Done</button>
+			{{> sectionsInSection}}	
+
+			<button type="button" class= "btn btn-danger destroySection">Destroy</button>
+			<span class="form-control-static">or</span>
+			<button type="button" class= "btn btn-primary saveSection">Done</button>
+		</div>
+	</div>
 </template>

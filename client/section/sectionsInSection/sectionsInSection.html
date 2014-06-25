@@ -2,8 +2,12 @@
 	<ul>
 	{{#each sections}}
 		<li>
-			<span class="form-control-static">{{name}}</span>
-			<button type="button" class= "btn btn-warning removeSection">Remove</button>	
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<span class="form-control-static">{{name}}</span>
+					<button type="button" class= "btn btn-warning removeSection">Remove</button>	
+				</div>
+			</div>
 		</li>
 	{{/each}}
 	</ul>

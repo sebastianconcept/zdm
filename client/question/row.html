@@ -1,5 +1,14 @@
 <template name="questionRow">
-		<label class="col-sm-2 control-label">{{label}}</label>
-		<span class="form-control-static">{{content}}</span>
-		<button type="button" class= "btn btn-default editQuestion">Edit</button>
+	<div class="question panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<h4>{{label}}</h4>
+			</div>
+		</div>
+		<div class="panel-body">
+			<label class="col-sm-2 control-label">{{label}}</label>
+			<span class="form-control-static">{{content}}</span>
+			<button type="button" class= "btn btn-default editQuestion">Edit</button>
+		</div>
+	</div>
 </template>

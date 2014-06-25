@@ -1,6 +1,16 @@
 <template name="sectionRow">
-		<label class="col-sm-2 control-label">{{name}}</label>
-		<span class="form-control-static">{{questions}}</span>
-		<span class="form-control-static">{{sections}}</span>
-		<button type="button" class= "btn btn-default editSection">Edit</button>
+	<div class="section panel panel-success">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<h4>{{name}}</h4>
+			</div>
+		</div>
+
+		<div class="panel-body">
+			<label class="col-sm-2 control-label">{{name}}</label>
+			<span class="form-control-static">{{questions}}</span>
+			<span class="form-control-static">{{sections}}</span>
+			<button type="button" class= "btn btn-default editSection">Edit</button>
+		</div>
+	</div>
 </template>
